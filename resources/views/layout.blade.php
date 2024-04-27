@@ -67,80 +67,6 @@
     <script src="{{ asset('frontend/js/jquery-cookie/jquery.cookie.js') }}"></script>
     <script src="{{ asset('frontend/js/jquery-migrate.min.js') }}" type="text/javascript"></script>
     <!--  <script src="js/bootstrap.min.js" type="text/javascript"></script> -->
-    <style>
-        .c-layout-header .c-navbar .c-mega-menu>.nav.navbar-nav>li>.c-link {
-            padding: 41px 10px 39px 10px
-        }
-
-        .ui-autocomplete {
-            max-height: 500px;
-            overflow-y: auto;
-            overflow-x: hidden;
-        }
-
-        .input-group-addon {
-            background-color: #FAFAFA;
-        }
-
-        .input-group .input-group-btn>.btn,
-        .input-group .input-group-addon {
-            background-color: #FAFAFA;
-        }
-
-        .modal {
-            text-align: center;
-        }
-
-        @media screen and (min-width: 768px) {
-            .modal:before {
-                display: inline-block;
-                vertical-align: middle;
-                content: " ";
-                height: 100%;
-            }
-        }
-
-        @media (min-width: 992px) and (max-width: 1200px) {
-            .c-layout-header-fixed.c-layout-header-topbar .c-layout-page {
-                margin-top: 245px;
-            }
-        }
-
-        @media screen and (max-width: 767px) {
-            .modal-dialog:before {
-                margin-top: 75px;
-                display: inline-block;
-                vertical-align: middle;
-                content: " ";
-                height: 100%;
-            }
-
-            .modal-dialog {
-                width: 100%;
-            }
-
-            .modal-content {
-                margin-right: 20px;
-            }
-        }
-
-        .modal-dialog {
-            display: inline-block;
-            text-align: left;
-        }
-
-        .mfp-wrap {
-            z-index: 20000 !important;
-        }
-
-        .c-content-overlay .c-overlay-wrapper {
-            z-index: 6;
-        }
-
-        .z7 {
-            z-index: 7 !important;
-        }
-    </style>
     <link href="{{ asset('css/magnific.css') }}" rel="stylesheet" type="text/css" />
     <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js'></script><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css'>-->
     <!-- Google Tag Manager -->
@@ -258,18 +184,6 @@
                     <!-- BEGIN: LAYOUT/HEADERS/MEGA-MENU -->
                     <!-- BEGIN: MEGA MENU -->
                     <!-- Dropdown menu toggle on mobile: c-toggler class can be applied to the link arrow or link itself depending on toggle mode -->
-                    <style>
-                        .c-menu-type-mega:hover {
-                            transition-delay: 1s;
-                        }
-
-                        .c-layout-header.c-layout-header-4 .c-navbar .c-mega-menu>.nav.navbar-nav>li:focus>a:not(.btn),
-                        .c-layout-header.c-layout-header-4 .c-navbar .c-mega-menu>.nav.navbar-nav>li:active>a:not(.btn),
-                        .c-layout-header.c-layout-header-4 .c-navbar .c-mega-menu>.nav.navbar-nav>li:hover>a:not(.btn) {
-                            color: #3a3f45;
-                            background: #FAFAFA;
-                        }
-                    </style>
                     <nav
                         class="c-mega-menu c-pull-right c-mega-menu-dark c-mega-menu-dark-mobile c-fonts-uppercase c-fonts-bold d-none hidden-xs hidden-sm">
                         <ul class="nav navbar-nav c-theme-nav">
@@ -296,9 +210,9 @@
                                 <a rel="" href="#" class="c-link dropdown-toggle ">Tin tức<span
                                         class="c-arrow c-toggler"></span></a>
                                 <ul id="children-of-42" class="dropdown-menu c-menu-type-classic c-pull-left ">
-                                    <li class="c-menu-type-classic"><a rel="" href="/blog"
+                                    <li class="c-menu-type-classic"><a rel="Blogs gmae" href="{{route('blogs')}}"
                                             class="">Blog</a></li>
-                                    <li class="c-menu-type-classic"><a rel="" href="/uy-tin-cua-shop"
+                                    {{-- <li class="c-menu-type-classic"><a rel="" href="/uy-tin-cua-shop"
                                             class="">UY T&Iacute;N CỦA SHOP</a></li>
                                     <li class="c-menu-type-classic"><a rel="" href="/danh-sach-gdv-group"
                                             class="">Danh S&aacute;ch GDV group</a></li>
@@ -309,7 +223,7 @@
                                             class="">Điều khoản sử dụng website</a></li>
                                     <li class="c-menu-type-classic"><a rel=""
                                             href="https://nick.vn/blog/chinh-sach-tai-nickvn"
-                                            class="">Ch&iacute;nh s&aacute;ch tại Nick.vn</a></li>
+                                            class="">Ch&iacute;nh s&aacute;ch tại Nick.vn</a></li> --}}
                                 </ul>
                             </li>
                             <li><a href="/login"
@@ -393,21 +307,14 @@
         <div class="c-content-box">
             <div id="slider" class="owl-theme section section-cate slideshow_full_width ">
                 <div id="slide_banner" class="owl-carousel">
-                    <div class="item">
-                        <a href="/" alt="banner chung">
-                            <img src="img/banner.jpg" alt="banner chung">
+                    @foreach ($slider as $key => $sli)
+                        <div class="item">
+                        <a href="#" alt="{{ $sli->title }}">
+                            <img src="{{ asset('uploads/slider/' . $sli->image) }}" width="100%" height="400px" alt="banner chung">
                         </a>
                     </div>
-                    <div class="item">
-                        <a href="/" alt="nitvn2">
-                            <img src="img/banner.jpg" alt="nitvn2">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="/" alt="nitvn3">
-                            <img src="img/banner.jpg" alt="nitvn3">
-                        </a>
-                    </div>
+                    @endforeach
+                    
                 </div>
             </div>
         </div>

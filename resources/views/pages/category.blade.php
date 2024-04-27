@@ -7,13 +7,13 @@
             <div class="container">
                 <div class="row">
                     <div class="alert alert-info" role="alert">
-                        <h2 class="alert-heading">Dịch Vụ Liên Minh Tốc Chiến</h2>
+                        <h2 class="alert-heading">Danh muc game Lien Quan</h2>
                         <p></p>
-                        <p><span style="color:#e74c3c"><strong>Dịch Vụ Liên Minh Tốc Chiến . </strong></span><strong>Dịch vụ
+                        <p><span style="color:#e74c3c"><strong>Danh muc game Lien Quan . </strong></span><strong>Dịch vụ
                                 bán skin và tướng giá rẻ game LIÊN MINH TỐC CHIẾN&nbsp;</strong></p>
                         <p></p>
                     </div>
-                    <div class="row" style="margin-bottom: 15px">
+                    {{-- <div class="row" style="margin-bottom: 15px">
                         <div class="m-l-10 m-r-10">
                             <form class="form-inline m-b-10" role="form" method="get" data-hs-cf-bound="true">
 
@@ -34,13 +34,13 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- Begin: Testimonals 1 component -->
                 <div class="c-content-client-logos-slider-1  c-bordered" data-slider="owl">
                     <!-- Begin: Title 1 component -->
                     <div class="c-content-title-1">
-                        <h3 class="c-center c-font-uppercase c-font-bold">Danh muc dich vu</h3>
+                        <h3 class="c-center c-font-uppercase c-font-bold">Danh muc game Lien Quan</h3>
                         <div class="c-line-center c-theme-bg"></div>
                     </div>
                     <div class="row row-flex-safari game-list">
@@ -49,14 +49,14 @@
                                 <div class="news_image">
                                     <img style="position: absolute;max-width: 79px;height: auto;top: -5px;right: -6px;z-index: 1122;"
                                         src="{{ asset('frontend/img/giam.png') }}" />
-                                    <a href="{{ route('dichvucon', 'cay-thue-lien-quan') }}" title="Danh Mục Game Free Fire"
+                                    <a href="{{ route('danhmuccon', 'nick-lien-quan') }}" title="Danh Mục Game Free Fire"
                                         class="">
                                         <img src="{{ asset('frontend/img/danhmuc.gif') }}"
                                             alt="Danh Mục Game Free Fire"></a>
                                 </div>
                                 <div class="news_title">
                                     <h2>
-                                        <a href="{{ route('dichvucon', 'cay-thue-lien-quan') }}"
+                                        <a href="{{ route('danhmuccon', 'nick-lien-quan') }}"
                                             title="Danh Mục Game Free Fire">Danh Mục
                                             Game Free Fire</a>
                                     </h2>
@@ -76,34 +76,6 @@
                                                 <a href="/danh-muc/danh-muc-game-free-fire" class=""
                                                     title="Danh Mục Game Free Fire">
                                                     &nbsp;
-                                                    <style type="text/css">
-                                                        .custom74 {
-                                                            border: none !important;
-                                                            padding: 0;
-                                                        }
-
-                                                        .custom74 a {
-                                                            background-size: 136px 35px;
-                                                            background-repeat: no-repeat;
-                                                            border: none;
-                                                            margin: 0 auto;
-                                                            width: 136px;
-                                                            height: 35px;
-                                                            background: url(/storage/images/pqiEm5g2bB_1623290758.jpg);
-                                                        }
-
-                                                        .custom74 a:hover {
-                                                            background-size: 136px 35px;
-                                                            background-repeat: no-repeat;
-                                                            border: none;
-                                                            margin: 0 auto;
-                                                            width: 136px;
-                                                            height: 35px;
-                                                            background: url(/storage/images/pqiEm5g2bB_1623290758.jpg);
-                                                            filter: saturate(2);
-                                                            filter: brightness(130%);
-                                                        }
-                                                    </style>
                                                 </a>
                                             </div>
                                         </div>
@@ -121,7 +93,7 @@
                     <!-- End-->
                 </div>
             </div>
-            <style type="text/css">
+            {{-- <style type="text/css">
                 .news_image,
                 .image,
                 .news_title,
@@ -204,7 +176,7 @@
                         margin-bottom: 10px;
                     }
                 }
-            </style>
+            </style> --}}
             <!-- END: PAGE CONTENT -->
         </div>
         <div class="modal fade" id="noticeModal" role="dialog" style="display: none;" aria-hidden="true">
