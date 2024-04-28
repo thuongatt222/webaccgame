@@ -7,10 +7,10 @@
             <div class="container">
                 <div class="row">
                     <div class="alert alert-info" role="alert">
-                        <h2 class="alert-heading">Danh muc game Lien Quan</h2>
+                        <h2 class="alert-heading">{{ $category->title }}</h2>
                         <p></p>
-                        <p><span style="color:#e74c3c"><strong>Danh muc game Lien Quan . </strong></span><strong>Dịch vụ
-                                bán skin và tướng giá rẻ game LIÊN MINH TỐC CHIẾN&nbsp;</strong></p>
+                        <p><span style="color:#e74c3c"><strong>{{ $category->title }} .
+                                </strong></span><strong>{{ $category->description }}&nbsp;</strong></p>
                         <p></p>
                     </div>
                     {{-- <div class="row" style="margin-bottom: 15px">
@@ -40,7 +40,7 @@
                 <div class="c-content-client-logos-slider-1  c-bordered" data-slider="owl">
                     <!-- Begin: Title 1 component -->
                     <div class="c-content-title-1">
-                        <h3 class="c-center c-font-uppercase c-font-bold">Danh muc game Lien Quan</h3>
+                        <h3 class="c-center c-font-uppercase c-font-bold">{{ $category->title }}</h3>
                         <div class="c-line-center c-theme-bg"></div>
                     </div>
                     <div class="row row-flex-safari game-list">
@@ -49,16 +49,15 @@
                                 <div class="news_image">
                                     <img style="position: absolute;max-width: 79px;height: auto;top: -5px;right: -6px;z-index: 1122;"
                                         src="{{ asset('frontend/img/giam.png') }}" />
-                                    <a href="{{ route('danhmuccon', 'nick-lien-quan') }}" title="Danh Mục Game Free Fire"
+                                    <a href="{{ route('danhmuccon', [$category->slug]) }}" title="{{ $category->title }}"
                                         class="">
-                                        <img src="{{ asset('frontend/img/danhmuc.gif') }}"
-                                            alt="Danh Mục Game Free Fire"></a>
+                                        <img src="{{ asset('uploads/category/' . $category->image) }}"
+                                            alt="{{ $category->title }}"></a>
                                 </div>
                                 <div class="news_title">
                                     <h2>
-                                        <a href="{{ route('danhmuccon', 'nick-lien-quan') }}"
-                                            title="Danh Mục Game Free Fire">Danh Mục
-                                            Game Free Fire</a>
+                                        <a href="{{ route('danhmuccon', [$category->slug]) }}"
+                                            title="{{ $category->title }}">{{ $category->title }}</a>
                                     </h2>
                                 </div>
                                 <div class="news_description">
@@ -66,15 +65,15 @@
                                         Số tài khoản: 23,490
                                     </p>
                                     <!-- <p>
-                                    Đã bán: 198
-                                    </p> -->
+                                        Đã bán: 198
+                                        </p> -->
                                 </div>
                                 <div class="a-more">
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <div class="custom74 view">
-                                                <a href="/danh-muc/danh-muc-game-free-fire" class=""
-                                                    title="Danh Mục Game Free Fire">
+                                                <a href="{{ route('danhmuccon', [$category->slug]) }}" class=""
+                                                    title="{{ $category->title }}">
                                                     &nbsp;
                                                 </a>
                                             </div>
@@ -83,7 +82,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
 
 
 

@@ -742,6 +742,7 @@ span.sale {
 .z7 {
   z-index: 7 !important;
 }
+
 .c-menu-type-mega:hover {
   transition-delay: 1s;
 }
@@ -751,4 +752,57 @@ span.sale {
 .c-layout-header.c-layout-header-4 .c-navbar .c-mega-menu>.nav.navbar-nav>li:hover>a:not(.btn) {
   color: #3a3f45;
   background: #FAFAFA;
+}
+
+.form-filter-right {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  color: #444;
+  z-index: 10;
+  transition: 400ms ease;
+  overflow-y: scroll;
+  transform: translateX(0px);
+  z-index: 10000;
+}
+
+.form-filter-right.open {
+  display: unset;
+  height: 100%;
+  transform: translateX(-300px);
+}
+
+#togger-filter {
+  visibility: hidden;
+  background-color: #000000bf;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  position: fixed;
+  z-index: 9999;
+}
+
+#togger-filter.active {
+  transition: 0.4s;
+  visibility: visible;
+  cursor: pointer;
+}
+
+.form-filter-content-mobile {
+  padding: 15px;
+}
+
+.close-popup {
+  color: #818e9a;
+  font-size: 36px;
+  left: 11px;
+  top: 7px;
+  position: absolute;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

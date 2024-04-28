@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Nick;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -23,17 +24,20 @@ class IndexController extends Controller
     public function dichvucon($slug)
     {
         $slider = Slider::orderBy('id', 'DESC')->where('status', 1)->get();
-        return view('pages.sub_service', compact('slug', 'slider'));
+        return view('pages.acc', compact('slug', 'slider'));
     }
     public function danhmucgame($slug)
     {
         $slider = Slider::orderBy('id', 'DESC')->where('status', 1)->get();
-        return view('pages.category', compact('slider'));
+        $category = Category::where('slug', $slug)->first();
+        return view('pages.category', compact('slider', 'category'));
     }
     public function danhmuccon($slug)
     {
+        $category = Category::where('slug', $slug)->first();
+        $nick = Nick::where('category_id', $category->id)->where('status', 1)->paginate(16);
         $slider = Slider::orderBy('id', 'DESC')->where('status', 1)->get();
-        return view('pages.sub_category', compact('slug', 'slider'));
+        return view('pages.acc', compact('slug', 'slider', 'nick', 'category'));
     }
     public function blogs()
     {
