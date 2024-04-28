@@ -101,14 +101,14 @@
             .create(document.querySelector('#desc_blog'))
             .catch(error => {
                 console.error(error);
-            });      
+            });
     </script>
     <script>
         ClassicEditor
             .create(document.querySelector('#content_blog'))
             .catch(error => {
                 console.error(error);
-            });      
+            });
     </script>
     <script>
         let table = new DataTable('#myTable');
@@ -144,27 +144,31 @@
             document.getElementById('convert_slug').value = slug;
         }
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <script type="text/javascript">
-        $('.choose_category').change(function(){
+        $('.choose_category').change(function() {
             var category_id = $(this).val();
-            // alert(category_id);
-            if(category_id == '0'){
+            if (category_id == '0') {
                 alert('Vui lòng chọn danh mục game');
-            }else{
+            } else {
                 $.ajax({
-                    url:"{{route('choose_category')}}",
-                    method:"POST",
+                    url: "{{ route('choose_category') }}",
+                    method: "POST",
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    data: {category_id:category_id},
-                    success: function(){
+                    data: {
+                        category_id: category_id
+                    },
+                    success: function(data) { // Add the 'data' parameter here
                         $('#show_attribute').html(data);
                     }
-                })
+                });
             }
-        })
+        });
     </script>
+
 </body>
 
 </html>

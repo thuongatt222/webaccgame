@@ -32,10 +32,6 @@
                             <input type="text" class="form-control" name="title" placeholder="...">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Thuộc tính</label>
-                            <input type="text" class="form-control" name="attribute" placeholder="...">
-                        </div>
-                        <div class="form-group">
                             <label for="exampleInputPassword1">Mô tả</label>
                             <textarea name="description" class="form-control" placeholder="..."></textarea>
                         </div>

@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Cập nhật accessories</div>
+                <div class="card-header">Cập nhật nick</div>
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -24,20 +24,32 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="{{ route('accessories.index') }}" class="btn btn-success">Liệt kê accessories</a>
-                    <a href="{{ route('accessories.create') }}" class="btn btn-success">Thêm accessories</a>
-                    <form action="{{ route('accessories.update', $accessories->id) }}" method="POST" enctype="multipart/form-data">
+                    <a href="{{ route('nick.index') }}" class="btn btn-success">Liệt kê nick</a>
+                    <a href="{{ route('nick.create') }}" class="btn btn-success">Thêm nick</a>
+                    <form action="{{ route('nick.update', $nick->id) }}" method="POST" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title</label>
-                            <input type="text" class="form-control" name="title" value="{{ $accessories->title }}"
-                                placeholder="...">
+                            <input type="text" class="form-control" name="title" value="{{$nick->title}}" placeholder="...">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Mô tả</label>
+                            <textarea name="description" class="form-control" value="{{$nick->description}}" placeholder="..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Hình ảnh</label>
+                            <input type="file" class="form-control-file" name="image" placeholder="...">
+                            <img src="{{asset('uploads/nick'.$nick->image)}}" alt="" width="100%" height="150px">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Giá</label>
+                            <input type="text" class="form-control" name="price" value="{{$nick->price}}" placeholder="...">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Trạng thái</label>
                             <select class="form-control" id="exampleFormControlSelect1" name="status">
-                                @if ($accessories->status == 1)
+                                @if ($nick->status == 1)
                                     <option value="1" selected>Hiển thị</option>
                                     <option value="0">Không hiển thị</option>
                                 @else
@@ -54,6 +66,10 @@
                                     <option {{$cate->id == $accessories->category_id ? 'selected' : ''}} value="{{$cate->id}}">{{$cate->title}}</option>
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Thuộc tính</label>
+                            <textarea name="attribute" class="form-control" value="{{$nick->attribute}}" placeholder="..."></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Cập nhật</button>
                     </form>

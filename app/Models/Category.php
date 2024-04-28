@@ -14,4 +14,7 @@ class Category extends Model
     public function accessories(){
         return $this->belongsTo(Accessories::class);
     }
+    public function nick(){
+        return $this->hasMany(Nick::class);
+    }
 }

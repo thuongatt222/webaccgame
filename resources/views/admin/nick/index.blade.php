@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Liệt kê accessories</div>
+                <div class="card-header">Liệt kê nick</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -16,22 +16,28 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="{{ route('accessories.create') }}" class="btn btn-success">Thêm accessories</a>
+                    <a href="{{ route('nick.create') }}" class="btn btn-success">Thêm nick</a>
                     <table class="table table-striped" id="myTable">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Tên phụ kiện</th>
+                                <th scope="col">Tên nick</th>
+                                <th scope="col">Mã số</th>
+                                <th scope="col">Mô tả</th>
                                 <th scope="col">Hiển thị</th>
+                                <th scope="col">Hình ảnh</th>
                                 <th scope="col">Game</th>
+                                <th scope="col">Thuộc tính</th>
                                 <th scope="col">Quản lý</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($accessories as $key => $acc)
+                            @foreach ($nick as $key => $acc)
                                 <tr>
                                     <td>{{ $key }}</td>
                                     <td>{{ $acc->title }}</td>
+                                    <td>#{{ $acc->ms }}</td>
+                                    <td>{{ $acc->description }}</td>
                                     <td>
                                         @if ($acc->status == 0)
                                             Không hiển thị
@@ -39,21 +45,30 @@
                                             Hiển thị
                                         @endif
                                     </td>
+                                    <td><img src="{{asset('uploads/nick'.$acc->image)}}" alt="" height="150px" width="150px"></td>
                                     <td>{{$acc->category->title}}</td>
                                     <td>
-                                        <form action="{{ route('accessories.destroy', $acc->id) }}" method="post">
+                                        @php
+                                            $attribute = json_decode($acc->attribute, true);
+                                        @endphp
+                                        @foreach ($attribute as $attri)
+                                            <span class="badge badege-dark">{{$attri}}</span>
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('nick.destroy', $acc->id) }}" method="post">
                                             @method('DELETE')
                                             @csrf
-                                            <button onclick="return confirm('Bạn có muốn xóa accessories này không?');"
+                                            <button onclick="return confirm('Bạn có muốn xóa nick này không?');"
                                                 class="btn btn-danger">Xóa</button>
                                         </form>
-                                        <a href="{{ route('accessories.edit', $acc->id) }}" class="btn btn-warning">Sửa</a>
+                                        <a href="{{ route('nick.edit', $acc->id) }}" class="btn btn-warning">Sửa</a>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    {{$accessories->links('pagination::bootstrap-4')}}
+                    {{$nick->links('pagination::bootstrap-4')}}
                 </div>
             </div>
         </div>

@@ -31,7 +31,7 @@ Route::get('/blogs/{slug}', [IndexController::class, 'blogcon'])->name('blogcon'
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/choose_category', [NickController::class, 'choose_category'])->name('choose_category');
+Route::post('/choose_category', [NickController::class, 'choose_category'])->name('choose_category');
 Route::resource('/category', CategoryController::class);
 Route::resource('/slider', SliderController::class);
 Route::resource('/blog', BlogController::class);
