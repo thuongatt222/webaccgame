@@ -14,7 +14,7 @@ class NickController extends Controller
      */
     public function index()
     {
-        $nick = Nick::with('category')->orderBy('id', 'DESC')->paginate(5);
+        $nick = Nick::with('category')->withCount('gallery')->orderBy('id', 'DESC')->paginate(5);
         return view('admin.nick.index', compact('nick'));
     }
 

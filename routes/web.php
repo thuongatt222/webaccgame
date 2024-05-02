@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccessoriesController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\NickController;
 use App\Http\Controllers\SliderController;
@@ -27,6 +28,7 @@ Route::get('/dich-vu/{slug}', [IndexController::class, 'dichvucon'])->name('dich
 Route::get('/danh-muc/{slug}', [IndexController::class, 'danhmuccon'])->name('danhmuccon');
 Route::get('/blogs', [IndexController::class, 'blogs'])->name('blogs');
 Route::get('/blogs/{slug}', [IndexController::class, 'blogcon'])->name('blogcon');
+Route::get('/acc/{ms}', [IndexController::class, 'detail_acc'])->name('acc');
 
 Auth::routes();
 
@@ -37,3 +39,4 @@ Route::resource('/slider', SliderController::class);
 Route::resource('/blog', BlogController::class);
 Route::resource('/accessories', AccessoriesController::class);
 Route::resource('/nick', NickController::class);
+Route::resource('/gallery', GalleryController::class);

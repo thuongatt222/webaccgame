@@ -14,4 +14,7 @@ class Nick extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+    public function gallery(){
+        return $this->hasMany(Gallery::class);
+    }
 }

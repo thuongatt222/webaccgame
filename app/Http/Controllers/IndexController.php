@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Gallery;
 use App\Models\Nick;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -50,5 +51,12 @@ class IndexController extends Controller
         $blog = Blog::orderBy('id', 'DESC')->where('slug', $slug)->first();
         $slider = Slider::orderBy('id', 'DESC')->where('status', 1)->get();
         return view('pages.sub_blog', compact('slider', 'blog'));
+    }
+    public function detail_acc($ms){
+        $nick = Nick::where('ms', $ms)->first();
+        $category = Category::where('id', $nick->category_id)->first();
+        $gallery = Gallery::where('nick_id', $nick->id)->get();
+        $slider = Slider::orderBy('id', 'DESC')->where('status', 1)->get();
+        return view('pages.accgame', compact('slider', 'nick', 'category', 'gallery'));
     }
 }

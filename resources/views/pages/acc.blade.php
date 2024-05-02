@@ -284,7 +284,7 @@
                                 </div>
                                 <div class="col-xs-6 ">
                                     <div class="view">
-                                        <a href="#">Chi tiết</a>
+                                        <a href="{{route('acc', $acc->ms)}}">Chi tiết</a>
                                     </div>
                                 </div>
                             </div>
